@@ -1,54 +1,69 @@
+/**
+ * 
+ */
 
-import org.json.*;
-
+/**
+ * @author harsh
+ *
+ */
 public class GradeInfo {
+
+	private String Grade;
+	private int min;
+	private int max;
 	
-	static JSONArray gradeInfoArray = new JSONArray();
-	JSONObject jsonObj = new JSONObject();
-	
-	GradeInfo(String grade, int min, int max) {
-		storeGradeinfo(grade, min, max);
-	}	
-	
-	private void storeGradeinfo(String grade, int min, int max) {
-		
-		try {
-			jsonObj.put("Grade", grade);
-			jsonObj.put("Min", min);
-			jsonObj.put("Max", max);
-			
-			gradeInfoArray.put(jsonObj);
-			
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	public GradeInfo(String grade, int min, int max) {
+		super();
+		Grade = grade;
+		this.min = min;
+		this.max = max;
 	}
 	
-	public static void printGradeInfo() {
-		
-		System.out.println("Your provided details for Grade Schema are like: \n");
-		System.out.println("--------------------------");
-		System.out.println("Grade | Minimum - Maximum");
-		System.out.println("--------------------------");
-		
-		for (int i = 0; i < gradeInfoArray.length(); i++) {
-			try {
-				if(i%2==0)
-				System.out.println(gradeInfoArray.getJSONObject(i).getString("Grade") + 
-						"         " + gradeInfoArray.getJSONObject(i).getInt("Min") + 
-						"   -  " + gradeInfoArray.getJSONObject(i).getInt("Max") + " % |");
-				else
-					System.out.println(gradeInfoArray.getJSONObject(i).getString("Grade") + 
-							"          " + gradeInfoArray.getJSONObject(i).getInt("Min") + 
-							"   -  " + gradeInfoArray.getJSONObject(i).getInt("Max") + " % |");
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		System.out.println("--------------------------");
+	public GradeInfo() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
+
+	/**
+	 * @return the grade
+	 */
+	public String getGrade() {
+		return Grade;
+	}
+
+	/**
+	 * @param grade the grade to set
+	 */
+	public void setGrade(String grade) {
+		Grade = grade;
+	}
+
+	/**
+	 * @return the min
+	 */
+	public int getMin() {
+		return min;
+	}
+
+	/**
+	 * @param min the min to set
+	 */
+	public void setMin(int min) {
+		this.min = min;
+	}
+
+	/**
+	 * @return the max
+	 */
+	public int getMax() {
+		return max;
+	}
+
+	/**
+	 * @param max the max to set
+	 */
+	public void setMax(int max) {
+		this.max = max;
+	}
+	
 }

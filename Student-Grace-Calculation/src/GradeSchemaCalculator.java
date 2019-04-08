@@ -35,6 +35,11 @@ public class GradeSchemaCalculator {
 		
 		Scanner scan = new Scanner(System.in);
 		
+		String showResults = "Your provided details for Grade Schema are like: \n"+
+							"--------------------------\n"+
+							"Grade | Minimum - Maximum |\n"+
+							"--------------------------\n";
+		
 		//For loop for change grade Letter
 		for (int i = 0; i < grades.length; i++) {
 			
@@ -48,9 +53,14 @@ public class GradeSchemaCalculator {
 			
 			GradeInfo gradeinfo = new GradeInfo(grades[i], min, max);
 			
+			showResults += gradeinfo.getGrade() + 
+					"         " + gradeinfo.getMin() + 
+					"   -  " + gradeinfo.getMax() + " % |\n";
 		}
 		
-		GradeInfo.printGradeInfo();
+		showResults += "--------------------------";
+		
+		System.out.println(showResults);
 	}
-
+		
 }
